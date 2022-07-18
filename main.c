@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 15:41:32 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/17 20:20:23 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:28:56 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_print_stack(struct s_stacks **stack)
 		// printf("Address of %d. node: %p\n", i, iterator);
 		printf("Value of %d. node->integer: %d\n", i, iterator->integer);
 		// printf("Index of node: %d\n", iterator->index);
-		// printf("Index when sorted: %d\n", iterator->sorted);
+		printf("Index when sorted: %d\n", iterator->sorted);
 		// printf("Address of %d. node->previous value: %p\n", i, iterator->previous);
 		// printf("Address of %d. node->next value: %p\n", i, iterator->next);
 		iterator = iterator->next;

@@ -6,11 +6,35 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 10:43:32 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/15 21:11:28 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/18 19:48:13 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
+
+int	ft_find_min(struct s_stacks **c)
+{
+	struct s_stacks	*iterator;
+	int				i;
+	int				j;
+
+	iterator = *c;
+	j = 0;
+	i = iterator->sorted;
+	while (iterator != NULL)
+	{
+		if (iterator->sorted < i)
+			i = iterator->sorted;
+		iterator = iterator->next;
+	}
+	iterator = *c;
+	while (iterator->sorted != i)
+	{
+		iterator = iterator->next;
+		j++;
+	}
+	return (j);
+}
 
 int	ft_find_max(int	*length)
 {
@@ -47,7 +71,7 @@ int	ft_is_in(int *list, int i, int max)
 	return (0);
 }
 
-void	ft_lis_to_b(struct s_stacks **a, struct s_stacks **b, int *length, 
+void	ft_lis_to_b(struct s_stacks **a, struct s_stacks **b, int *length,
 int *subsequence)
 {
 	struct s_stacks	*iterator;

@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:11:48 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/17 20:26:51 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:21:07 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	ft_sort(struct s_stacks **a, struct s_stacks **b, int *commands)
 	ft_lis(a, &subsequence[0], &length[0]);
 	ft_lis_to_b(a, b, &length[0], &subsequence[0]);
 	ft_sort_back_in(a, b);
+	// ft_print_stack(b);
+	// printf("^^^ Stack B ^^^\n");
+	ft_operations(a, b, 30);
 	ft_print_stack(a);
 	printf("^^^ Stack A ^^^\n");
-	ft_print_stack(b);
-	printf("^^^ Stack B ^^^\n");
-	ft_operations(a, b, 30);
 }

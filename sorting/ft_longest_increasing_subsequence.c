@@ -6,11 +6,13 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 10:38:40 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/15 12:56:39 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:45:37 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
+
+// Maximum arguments is set to 500 in this function!! 
 
 void	ft_put_1s(int *array, int *length)
 {
