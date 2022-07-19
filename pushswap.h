@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 15:56:01 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/18 22:18:14 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/19 21:55:26 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_stacks
 	int				integer;
 	int				index;
 	int				sorted;
+	int				op_steps;
 	struct s_stacks	*previous;
 	struct s_stacks	*next;
 }					t_stacks;
@@ -38,7 +39,7 @@ int		ft_atolonglong(const char *nptr);
 
 // Error checks
 
-void	ft_error(int ecode, int position, char *string);
+void	ft_error(int ecode, int position);
 void	ft_check_errors(int argc, char **argv);
 int		ft_check(char *list);
 
@@ -62,7 +63,7 @@ void		ft_operations(struct s_stacks **a, struct s_stacks **b, int operation);
 
 // sorting the list
 
-void	ft_sort(struct s_stacks **a, struct s_stacks **b, int *commands);
+void	ft_sort(struct s_stacks **a, struct s_stacks **b);
 void	ft_lis(struct s_stacks **lst, int *subsequence, int *length);
 void	ft_lis_to_b(struct s_stacks **a, struct s_stacks **b, int *length, 
 int *subsequence);

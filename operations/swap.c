@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 19:44:25 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/16 19:45:28 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/19 19:30:37 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,10 @@ void	ft_swap(struct s_stacks **list)
 	struct s_stacks	*ptr_to_head;
 	struct s_stacks	*temp1;
 	struct s_stacks	*temp2;
-	int				i;
 
-	i = 0;
 	ptr_to_head = *list;
 	if (ptr_to_head == NULL || ptr_to_head->next == NULL)
-		ft_error(6, 0, NULL);
+		ft_error(6, 0);
 	else
 	{
 		ptr_to_head->previous = ptr_to_head->next;

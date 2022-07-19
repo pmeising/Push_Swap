@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 10:43:32 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/18 19:48:13 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/19 21:54:34 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,38 @@ int	ft_is_in(int *list, int i, int max)
 	while (j < max)
 	{
 		if (list[j] == i)
-		{
-			printf("Found a match.\n");
 			return (1);
-		}
 		j++;
 	}
 	return (0);
+}
+
+// I realized, that if length[index] of max == 1 (or rather the longest 
+// increasing subsequence is 1) that means, that the stack is sorted upside
+// down. The fastest way to sorting it, is to rev. rotate, push to b until a 
+// only has 2 nodes. Then swap these nodes and start pushing from b until b
+// is empty. That is what ft_one_sorted does.
+
+void	ft_one_sorted(struct s_stacks **a, struct s_stacks **b)
+{
+	struct s_stacks	*head_a;
+	struct s_stacks	*head_b;
+
+	head_a = *a;
+	head_b = *b;
+	while (head_a->next->next != NULL)
+	{
+		ft_operations(a, b, 7); // reverse rotate a
+		ft_operations(a, b, 4); // push to b
+		head_a = *a;
+	}
+	ft_operations(a, b, 1); // swap a
+	head_b = *b;
+	while (head_b != NULL)
+	{
+		ft_operations(a, b, 3); // push to a
+		head_b = *b;
+	}
 }
 
 void	ft_lis_to_b(struct s_stacks **a, struct s_stacks **b, int *length,
@@ -83,6 +108,8 @@ int *subsequence)
 	iterator = *a;
 	k = 0;
 	index_of_max = ft_find_max(&length[0]);
+	if (length[index_of_max] == 1)
+		ft_one_sorted(a, b);
 	i = index_of_max;
 	while (k < length[i])
 	{

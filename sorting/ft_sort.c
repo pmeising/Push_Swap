@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:11:48 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/18 15:21:07 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/19 19:32:50 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,11 @@
 // in the function ft_find_max, I am looking for the max value in the array
 // length.
 
-void	ft_sort(struct s_stacks **a, struct s_stacks **b, int *commands)
+void	ft_sort(struct s_stacks **a, struct s_stacks **b)
 {
-	struct s_stacks	*head_to_a;
-	int				index_of_max;
-	int				i;
 	int				length[500];
 	int				subsequence[500];
 
-	i = 0;
-	head_to_a = *a;
 	ft_put_sorted(a);
 	ft_put_1s(&subsequence[0], &length[0]);
 	ft_lis(a, &subsequence[0], &length[0]);

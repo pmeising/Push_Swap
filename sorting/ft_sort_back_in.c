@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:15:49 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/18 22:23:04 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/19 21:53:28 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,7 @@ int	ft_is_in_stack(struct s_stacks **a, int i)
 	while (j < size)
 	{
 		if (head->sorted == i)
-		{
-			printf("Found a match.\n");
 			return (j);
-		}
 		j++;
 		head = head->next;
 	}
@@ -76,7 +73,6 @@ int	ft_is_in_stack(struct s_stacks **a, int i)
 
 void	ft_find_push(struct s_stacks **a, struct s_stacks **b, int i)
 {
-	struct s_stacks	*iterator;
 	int	pos;
 
 	pos = ft_is_in_stack(b, i);
@@ -96,8 +92,6 @@ void	ft_sort_back_in(struct s_stacks **a, struct s_stacks **b)
 	int				max;
 
 	max = ft_lstsize(*a) + ft_lstsize(*b);
-	min = ft_find_min(a);
-	ft_op_rot_a(a, b, min);
 	head_a = *a;
 	head_b = *b;
 	while (head_b != NULL)

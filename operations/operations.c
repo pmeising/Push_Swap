@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:21:07 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/18 15:24:03 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/19 20:54:31 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void	ft_operations(struct s_stacks **a, struct s_stacks **b, int operation)
 	}
 	else if (operation == 30)
 		printf("It took me %d operations to sort the stack.\n", i);
-	printf("After operation: \n");
-	ft_print_stack(a);
-	printf("^ Stack A ^ \n");
-	ft_print_stack(b);
-	printf("^ Stack B ^ \n");
+	// printf("After operation: \n");
+	// ft_print_stack(a);
+	// printf("^ Stack A ^ \n");
+	// ft_print_stack(b);
+	// printf("^ Stack B ^ \n");
 	i++;
 }

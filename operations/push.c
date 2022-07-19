@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 23:00:48 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/12 13:17:29 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/19 19:29:20 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_push(struct s_stacks **src, struct s_stacks **dest)
 	iterator_of_dest = *dest;
 	temp = *src;
 	if (iterator_of_src == NULL)
-		ft_error(8, 0, NULL);
+		ft_error(8, 0);
 	if (iterator_of_src->next != NULL)
 		iterator_of_src->next->previous = NULL;
 	*src = iterator_of_src->next;

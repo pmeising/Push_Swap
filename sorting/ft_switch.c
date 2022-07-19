@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 19:26:16 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/17 18:55:15 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/19 19:34:27 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_switch(struct s_stacks **ptr_to_node, struct s_stacks **c)
 
 	node = *ptr_to_node;
 	if (ptr_to_node == NULL || node->next == NULL)
-		ft_error(6, 0, NULL);
+		ft_error(6, 0);
 	else
 	{
 		node2 = node->next;

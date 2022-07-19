@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 21:33:50 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/05 20:27:33 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/19 19:28:45 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_atolonglong(const char *nptr)
 	if (is_negative != 0)
 		return (nbr * is_negative);
 	if (nbr > 2147483647 || nbr < -2147483648)
-		ft_error(4, 0, NULL);
+		ft_error(4, 0);
 	number = (int)nbr;
 	return (number);
 }

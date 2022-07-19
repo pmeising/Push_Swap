@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:39:34 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/17 19:03:43 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/19 21:33:15 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,21 +111,19 @@ void	ft_transfere_indexes(struct s_stacks **a, struct s_stacks **c)
 		}
 		head_c = head_c->next;
 	}
+	ft_del_lst(&head_c);
 }
 
 void	ft_put_sorted(struct s_stacks **a)
 {
 	struct s_stacks	*iterator;
-	struct s_stacks	*temp;
-	struct s_stacks	*head_a;
 	struct s_stacks	*head_c;
 
+	head_c = NULL;
 	ft_copy_lst(a, &head_c);
-	ft_print_stack(&head_c);
-	head_a = *a;
 	iterator = head_c;
 	if (ft_check_if_sorted(&head_c) == 1)
-		ft_error(9, 0, NULL);
+		ft_error(9, 0);
 	while (ft_check_if_sorted(&head_c) == 0)
 	{
 		if (iterator->next == NULL)

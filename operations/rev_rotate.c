@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 22:45:47 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/11 22:59:40 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/19 19:29:37 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_rev_rotate(struct s_stacks **lst)
 	ptr_last = iterator;
 	ptr_to_first = *lst;
 	if (ptr_to_first == NULL || ptr_to_first->next == NULL)
-		ft_error(7, 0, NULL);
+		ft_error(7, 0);
 	else
 	{
 		while (ptr_last->next != NULL)

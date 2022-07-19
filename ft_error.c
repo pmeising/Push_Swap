@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 19:05:03 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/15 21:48:42 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/19 19:24:24 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	ft_earth(int i)
 	write(2, " \\     | .'     `-'/\n  `.   ;/        .'\njgs `'-._____.", 56);
 	write(2, "\n\nVoid detected, please add lifeforms...\n\n... ... ...", 53);
 	write(2, " ... ... ... ... ... ... ... \n\n", 31);
+	i++;
 }
 
 static void	ft_alien(int i)
@@ -32,6 +33,7 @@ static void	ft_alien(int i)
 	write(2, " /_@/|\n          \\    ||    /\n           \\        /\n", 55);
 	write(2, "            \\  __  /\n             '.__.'\n", 42);
 	write(2, "              |  |\n     jgs      |  |\n\n", 39);
+	i++;
 }
 
 static void	ft_overpopulation(int i)
@@ -41,15 +43,11 @@ static void	ft_overpopulation(int i)
 	write(2, "Option 1: './<program name> <String of space separated", 55);
  	write(2, "integers>'\n", 11);
 	write(2, "Option 2: './<program name> <int_1> <int_2> ... <int_n>'\n", 57);
+	i++;
 }
 
-void	ft_error(int ecode, int position, char *string)
+void	ft_error(int ecode, int position)
 {
-	int		i;
-	char	c;
-
-	
-	i = 1;
 	if (ecode == 0)
 	{
 		ft_earth(0);
@@ -59,7 +57,6 @@ void	ft_error(int ecode, int position, char *string)
 		ft_overpopulation(0);
 	else if (ecode == 2)
 	{
-		c = string[i + 1];
 		ft_alien(0);
 		printf("Found unknown life-form at index ");
 		printf("%d.\n\n... ... ... ... ... .. ...\n\n", position);
@@ -116,24 +113,23 @@ void	ft_error(int ecode, int position, char *string)
 int	ft_check(char *list)
 {
 	int	i;
-	int	k;
 
 	i = 0;
 	if ((char)list[i] == 45 || (char)list[i] == 43)
 		i++;
 	if ((char)list[i] == '\0')
-		ft_error(3, 0, NULL);
+		ft_error(3, 0);
 	while (list[i] != '\0')
 	{
 		if ((char)list[i] < 48 || (char)list[i] > 57)	
 		{
-			ft_error(2, i, list);
+			ft_error(2, i);
 			exit(1);
 		}
 		i++;
 	}
 	if (ft_strlen(list) > 11)
-		ft_error(4, 0, NULL);
+		ft_error(4, 0);
 	return (0);
 }
 
@@ -141,18 +137,14 @@ int	ft_check(char *list)
 
 void	ft_check_errors(int argc, char **argv)
 {
-	int		i;
-	char	**arguments;
-
-	i = 0;
 	if (argc < 2)
 	{
-		ft_error(0, 0, argv[1]);
+		ft_error(0, 0);
 		exit (0);
 	}
 	if (argc > 2 && (ft_strchr(argv[1], 32) != NULL))
 	{
-		ft_error(1, 0, argv[1]);
+		ft_error(1, 0);
 		exit (0);
 	}
 }
