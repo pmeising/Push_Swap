@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:21:07 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/19 20:54:31 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/21 22:37:34 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ft_operations(struct s_stacks **a, struct s_stacks **b, int operation)
 	{
 		ft_rotate(a); // rotate up on both a and b.
 		ft_rotate(b);
+		// printf("Repeatedly rotating\n");
 	}
 	else if (operation == 7)
 		ft_rev_rotate(a); // reverse rotate on a.
@@ -46,6 +47,7 @@ void	ft_operations(struct s_stacks **a, struct s_stacks **b, int operation)
 	{
 		ft_rev_rotate(a); // reverse rotate on both a and b.
 		ft_rev_rotate(b);
+		// printf("Repeatedly reverse rotating\n");
 	}
 	else if (operation == 30)
 		printf("It took me %d operations to sort the stack.\n", i);

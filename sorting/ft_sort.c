@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:11:48 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/19 19:32:50 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/21 20:46:53 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,18 @@ void	ft_sort(struct s_stacks **a, struct s_stacks **b)
 	ft_put_1s(&subsequence[0], &length[0]);
 	ft_lis(a, &subsequence[0], &length[0]);
 	ft_lis_to_b(a, b, &length[0], &subsequence[0]);
-	ft_sort_back_in(a, b);
+	printf("A: \n");
+	ft_print_stack(a);
+	printf("B: \n");
+	ft_print_stack(b);
+	ft_sort_back_in_new(a, b);
 	// ft_print_stack(b);
 	// printf("^^^ Stack B ^^^\n");
 	ft_operations(a, b, 30);
 	ft_print_stack(a);
 	printf("^^^ Stack A ^^^\n");
+	if (ft_check_if_sorted(a) == 1)
+		printf("Sorting successful! :) \n");
+	else
+		printf("\n\nSORTING WAS NOT SUCCESSFULL...\n\n");
 }

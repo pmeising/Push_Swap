@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_LIS_to_b.c                                      :+:      :+:    :+:   */
+/*   ft_lis_to_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 10:43:32 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/19 21:54:34 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/21 23:33:23 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,37 +102,21 @@ int *subsequence)
 	struct s_stacks	*iterator;
 	int				index_of_max;
 	int				k;
-	int				i;
 	int				list[500];
 
-	iterator = *a;
 	k = 0;
 	index_of_max = ft_find_max(&length[0]);
 	if (length[index_of_max] == 1)
 		ft_one_sorted(a, b);
-	i = index_of_max;
-	while (k < length[i])
-	{
-		list[k] = index_of_max;
-		index_of_max = subsequence[index_of_max];
-		k++;
-	}
-	k = 0;
-	index_of_max = i;
-	i = 1;
+	ft_helper_1(&length[0], &list[0], &subsequence[0], index_of_max);
 	while (k < index_of_max)
 	{
-		if (ft_lstsize(*a) == length[index_of_max])
-			break;
 		iterator = *a;
 		if (ft_is_in(&list[0], iterator->index, length[index_of_max]) == 0)
-		{
 			ft_operations(a, b, 4); // push to b.
-			i++;
-		}
 		else if ((ft_is_in(&list[0], iterator->index, index_of_max) == 1) && k < index_of_max)
 		{
-			ft_operations(a, b, 5); // rotate.
+			ft_operations(a, b, 5); // rotate a.
 			k++;
 		}
 	}

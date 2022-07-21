@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 15:56:01 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/19 21:55:26 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/21 23:25:24 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ typedef struct s_stacks
 	int				index;
 	int				sorted;
 	int				op_steps;
+	int				i;
+	int				j;
+	int				m;
 	struct s_stacks	*previous;
 	struct s_stacks	*next;
 }					t_stacks;
@@ -70,9 +73,19 @@ int *subsequence);
 void	ft_put_1s(int *array, int *length);
 int		ft_find_max(int	*length);
 int		ft_is_in(int *list, int i, int max);
-void	ft_sort_back_in(struct s_stacks **a, struct s_stacks **b);
+int		ft_is_in_stack(struct s_stacks **a, int i);
+void	ft_sort_back_in_new(struct s_stacks **a, struct s_stacks **b);
 void	ft_put_sorted(struct s_stacks **a);
 int		ft_check_if_sorted(struct s_stacks **c);
+int		ft_abs(int i);
+void	ft_rr(struct s_stacks **a, struct s_stacks **b, int m);
+void	ft_rrr(struct s_stacks **a, struct s_stacks **b, int m);
+void	ft_rest(struct s_stacks **a, struct s_stacks **b, int j, int i);
+void	ft_helper_1(int *length, int *list, int *subsequence, int i);
+int		ft_find_steps(struct s_stacks **a, struct s_stacks **b, int k);
+int		ft_find_steps_while_pushing(struct s_stacks **a, struct s_stacks **b, int k);
+void	ft_unite_while_pushing(struct s_stacks **a, struct s_stacks **b, int k);
+int		ft_combine(int i, int j, struct s_stacks *iterator);
 
 // Sorting funcs on c.
 
@@ -86,7 +99,11 @@ void	ft_print_stack(struct s_stacks **stack);
 // Miscellaneous
 
 int		ft_find_min(struct s_stacks **c);
-void	ft_op_rot_a(struct s_stacks **a, struct s_stacks **b, int pos);
-void	ft_op_rot_b(struct s_stacks **a, struct s_stacks **b, int pos);
+void	ft_op_rot_a_old(struct s_stacks **a, struct s_stacks **b, int pos);
+void	ft_op_rot_b_old(struct s_stacks **a, struct s_stacks **b, int pos);
+
+// NEW SORTING OPTIMIZATION
+int		ft_op_rot_a(struct s_stacks **a, int pos);
+int		ft_op_rot_b(struct s_stacks **b, int pos);
 
 #endif

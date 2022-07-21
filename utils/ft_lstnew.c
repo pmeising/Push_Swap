@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 23:01:09 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/19 21:56:41 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/21 09:52:49 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ t_stacks	*ft_lstnew(int content)
 	newnode->next = NULL;
 	newnode->previous = NULL;
 	newnode->op_steps = 0;
+	newnode->i = 0;
+	newnode->j = 0;
+	newnode->m = 0;
 	newnode->index = 0;
 	newnode->sorted = 0;
 	return (newnode);
