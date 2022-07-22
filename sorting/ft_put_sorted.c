@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:39:34 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/21 20:35:59 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/22 20:23:54 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	ft_check_if_sorted(struct s_stacks **c)
 	}
 	if (j == size - 1)
 		return (1);
+	else if (j == size - 2)
+		return (2);
 	return (0);
 }
 

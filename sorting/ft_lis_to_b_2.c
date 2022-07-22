@@ -6,11 +6,22 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 21:31:19 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/21 23:30:43 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/22 18:38:30 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
+void	ft_helper_2(int *list)
+{
+	int	i;
+
+	i = 499;
+	while (i >= 0)
+	{
+		list[i] = -1;
+		i--;
+	}
+}
 
 void	ft_helper_1(int *length, int *list, int *subsequence, int i)
 {
@@ -22,6 +33,7 @@ void	ft_helper_1(int *length, int *list, int *subsequence, int i)
 	while (k < length[i])
 	{
 		list[k] = index_of_max;
+		// printf("List at %d has value: %d\n", k, index_of_max);
 		index_of_max = subsequence[index_of_max];
 		k++;
 	}

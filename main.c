@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 15:41:32 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/21 22:37:05 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/22 18:42:02 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ static void	ft_det_dups(struct s_stacks *ptr_to_head)
 	i = 0;
 	k = 0;
 	iterator = ptr_to_head;
-	while (iterator->next != NULL)
+	while (iterator != NULL)
 	{
 		iterator->index = k;
+		printf("index is: %d\n", k);
 		i = iterator->integer;
 		temp = iterator->next;
 		while (temp != NULL)
@@ -67,8 +68,8 @@ void	ft_print_stack(struct s_stacks **stack)
 		i++;
 		// printf("Address of %d. node: %p\n", i, iterator);
 		// printf("Value of %d. node->integer: %d\n", i, iterator->integer);
-		// // printf("Index of node: %d\n", iterator->index);
-		// printf("Index when sorted: %d\n", iterator->sorted);
+		// printf("Index of node: %d\n", iterator->index);
+		printf("Index when sorted: %d\n", iterator->sorted);
 		// printf("Address of %d. node->previous value: %p\n", i,
 		// iterator->previous);
 		// printf("Address of %d. node->next value: %p\n", i, iterator->next);

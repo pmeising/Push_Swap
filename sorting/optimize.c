@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 22:13:00 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/21 16:16:35 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/22 20:23:38 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,3 +84,17 @@ int	ft_abs(int i)
 		i = i * (-1);
 	return (i);
 }
+
+void	ft_one_off(struct s_stacks **a, struct s_stacks **b)
+{
+	ft_operations(a, b, 7); // rev rotate a
+	ft_operations(a, b, 7); // rev rotate a
+	ft_operations(a, b, 1); // swap a
+	ft_operations(a, b, 5); // rotate a
+	ft_operations(a, b, 5); // rotate a
+	ft_operations(a, b, 30);
+	ft_del_lst(a);
+	ft_del_lst(b);
+	exit (0);
+}
+

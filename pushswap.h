@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 15:56:01 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/21 23:25:24 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/22 20:24:08 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,12 @@ void	ft_rr(struct s_stacks **a, struct s_stacks **b, int m);
 void	ft_rrr(struct s_stacks **a, struct s_stacks **b, int m);
 void	ft_rest(struct s_stacks **a, struct s_stacks **b, int j, int i);
 void	ft_helper_1(int *length, int *list, int *subsequence, int i);
+void	ft_helper_2(int *list);
 int		ft_find_steps(struct s_stacks **a, struct s_stacks **b, int k);
 int		ft_find_steps_while_pushing(struct s_stacks **a, struct s_stacks **b, int k);
 void	ft_unite_while_pushing(struct s_stacks **a, struct s_stacks **b, int k);
 int		ft_combine(int i, int j, struct s_stacks *iterator);
+void	ft_one_off(struct s_stacks **a, struct s_stacks **b);
 
 // Sorting funcs on c.
 

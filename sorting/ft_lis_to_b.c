@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 10:43:32 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/21 23:33:23 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/22 13:57:30 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,13 @@ int	ft_find_max(int	*length)
 	int	index_of_max;
 
 	index_of_max = 0;
-	i = 498;
-	while (i > 0)
+	i = 499;
+	while (i > 0) // first one is already compared to by statement in if clause
 	{
-		if (length[i] > length[i + 1] && length[i] > index_of_max)
+		if (length[i] > length[i - 1] && length[i] > length[index_of_max])
 			index_of_max = i;
 		i--;
 	}
-	i = 0;
 	printf("Longest sequence is %d\nThis is stored at position: %i\n", length[index_of_max], index_of_max);
 	return (index_of_max);
 }
@@ -108,16 +107,20 @@ int *subsequence)
 	index_of_max = ft_find_max(&length[0]);
 	if (length[index_of_max] == 1)
 		ft_one_sorted(a, b);
+	ft_helper_2(&list[0]);
 	ft_helper_1(&length[0], &list[0], &subsequence[0], index_of_max);
-	while (k < index_of_max)
+	while (k <= index_of_max)
 	{
 		iterator = *a;
-		if (ft_is_in(&list[0], iterator->index, length[index_of_max]) == 0)
+		if (ft_is_in(&list[0], iterator->index, length[index_of_max]) == 0) // if not part of LIS
 			ft_operations(a, b, 4); // push to b.
-		else if ((ft_is_in(&list[0], iterator->index, index_of_max) == 1) && k < index_of_max)
+		else if ((ft_is_in(&list[0], iterator->index, index_of_max) == 1) && k <= index_of_max) // if part of LIS
 		{
 			ft_operations(a, b, 5); // rotate a.
 			k++;
 		}
+		if (k == index_of_max && iterator->next != NULL &&
+		 ft_is_in(&list[0], iterator->next->index, length[index_of_max]) == 1)
+			break;
 	}
 }
