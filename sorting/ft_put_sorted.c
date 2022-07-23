@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:39:34 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/22 20:23:54 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/23 10:18:14 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,26 @@ void	ft_put_indexes(struct s_stacks **c)
 	struct s_stacks	*iterator;
 	int				i;
 
-	i = 0;
 	iterator = *c;
-	while (iterator->integer < iterator->next->integer) // put lowest int at the top.
+	i = iterator->integer;
+	while (iterator != NULL)
+	{
+		if (iterator->integer < i)
+			i = iterator->integer;
+		iterator = iterator->next;
+	}
+	iterator = *c;
+	while (iterator->integer != i) // put lowest int at the top.
 	{
 		ft_rotate(c);
 		iterator = *c;
 	}
-	ft_rotate(c);
 	iterator = *c;
+	i = 0;
 	while (iterator != NULL)
 	{
 		iterator->sorted = i;
+		// printf("integer: %d Iterator->sorted value: %d \n", iterator->integer, iterator->sorted);
 		i++;
 		iterator = iterator->next;
 	}
@@ -126,7 +134,7 @@ void	ft_put_sorted(struct s_stacks **a)
 	iterator = head_c;
 	if (ft_check_if_sorted(&head_c) == 1)
 		ft_error(9, 0);
-	while (ft_check_if_sorted(&head_c) == 0)
+	while (ft_check_if_sorted(&head_c) != 1)
 	{
 		if (iterator->next == NULL)
 			iterator = head_c;

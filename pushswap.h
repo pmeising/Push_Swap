@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 15:56:01 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/22 20:24:08 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/23 11:08:05 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,9 @@ void	ft_print_stack(struct s_stacks **stack);
 
 // Miscellaneous
 
-int		ft_find_min(struct s_stacks **c);
+int		ft_find_max(int	*length);
+int		ft_find_min_ret_value(struct s_stacks **c);
+int		ft_find_min_ret_pos(struct s_stacks **c);
 void	ft_op_rot_a_old(struct s_stacks **a, struct s_stacks **b, int pos);
 void	ft_op_rot_b_old(struct s_stacks **a, struct s_stacks **b, int pos);
 

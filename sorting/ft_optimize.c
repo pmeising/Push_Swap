@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 22:13:00 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/21 18:49:35 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/23 11:37:59 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,60 @@ int	ft_op_rot_b(struct s_stacks **b, int pos)
 		return (-1 * (size - pos)); // rev rotate b size - pos times.
 	else
 		return (0);
+}
+
+int	ft_find_min_ret_pos(struct s_stacks **c)
+{
+	struct s_stacks	*iterator;
+	int				i;
+	int				j;
+
+	iterator = *c;
+	j = 0;
+	i = iterator->sorted;
+	while (iterator != NULL)
+	{
+		if (iterator->sorted < i)
+			i = iterator->sorted;
+		iterator = iterator->next;
+	}
+	iterator = *c;
+	while (iterator->sorted != i)
+	{
+		iterator = iterator->next;
+		j++;
+	}
+	return (j);
+}
+
+int	ft_find_min_ret_value(struct s_stacks **c)
+{
+	struct s_stacks	*iterator;
+	int				i;
+
+	iterator = *c;
+	i = iterator->sorted;
+	while (iterator != NULL)
+	{
+		if (iterator->sorted < i)
+			i = iterator->sorted;
+		iterator = iterator->next;
+	}
+	return (i);
+}
+
+int	ft_find_max(int	*length)
+{
+	int	i;
+	int	index_of_max;
+
+	index_of_max = 0;
+	i = 499;
+	while (i > 0) // first one is already compared to by statement in if clause
+	{
+		if (length[i] > length[i - 1] && length[i] > length[index_of_max])
+			index_of_max = i;
+		i--;
+	}
+	return (index_of_max);
 }

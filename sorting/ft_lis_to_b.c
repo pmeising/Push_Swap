@@ -6,52 +6,11 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 10:43:32 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/22 13:57:30 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/23 11:05:46 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
-
-int	ft_find_min(struct s_stacks **c)
-{
-	struct s_stacks	*iterator;
-	int				i;
-	int				j;
-
-	iterator = *c;
-	j = 0;
-	i = iterator->sorted;
-	while (iterator != NULL)
-	{
-		if (iterator->sorted < i)
-			i = iterator->sorted;
-		iterator = iterator->next;
-	}
-	iterator = *c;
-	while (iterator->sorted != i)
-	{
-		iterator = iterator->next;
-		j++;
-	}
-	return (j);
-}
-
-int	ft_find_max(int	*length)
-{
-	int	i;
-	int	index_of_max;
-
-	index_of_max = 0;
-	i = 499;
-	while (i > 0) // first one is already compared to by statement in if clause
-	{
-		if (length[i] > length[i - 1] && length[i] > length[index_of_max])
-			index_of_max = i;
-		i--;
-	}
-	printf("Longest sequence is %d\nThis is stored at position: %i\n", length[index_of_max], index_of_max);
-	return (index_of_max);
-}
 
 int	ft_is_in(int *list, int i, int max)
 {
@@ -102,6 +61,7 @@ int *subsequence)
 	int				index_of_max;
 	int				k;
 	int				list[500];
+	int				size;
 
 	k = 0;
 	index_of_max = ft_find_max(&length[0]);
@@ -109,11 +69,16 @@ int *subsequence)
 		ft_one_sorted(a, b);
 	ft_helper_2(&list[0]);
 	ft_helper_1(&length[0], &list[0], &subsequence[0], index_of_max);
+	size = ft_lstsize(*a) + ft_lstsize(*b);
 	while (k <= index_of_max)
 	{
 		iterator = *a;
 		if (ft_is_in(&list[0], iterator->index, length[index_of_max]) == 0) // if not part of LIS
+		{
 			ft_operations(a, b, 4); // push to b.
+			if (iterator->sorted > size/2 && ft_lstsize(*b) > 1)
+				ft_operations(a, b, 6); // rotate b
+		}
 		else if ((ft_is_in(&list[0], iterator->index, index_of_max) == 1) && k <= index_of_max) // if part of LIS
 		{
 			ft_operations(a, b, 5); // rotate a.

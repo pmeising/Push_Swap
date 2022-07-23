@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 15:41:32 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/22 18:42:02 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/23 11:37:34 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static void	ft_det_dups(struct s_stacks *ptr_to_head)
 	while (iterator != NULL)
 	{
 		iterator->index = k;
-		printf("index is: %d\n", k);
 		i = iterator->integer;
 		temp = iterator->next;
 		while (temp != NULL)
@@ -56,29 +55,29 @@ static void	ft_det_dups(struct s_stacks *ptr_to_head)
 // The following function is outcommented due to the functionality only
 // being used during testing. If neccessary, it can be used again.
 
-void	ft_print_stack(struct s_stacks **stack)
-{
-	t_stacks	*iterator;
-	int			i;
+// void	ft_print_stack(struct s_stacks **stack)
+// {
+// 	t_stacks	*iterator;
+// 	int			i;
 
-	i = 0;
-	iterator = *stack;
-	while (iterator != NULL)
-	{
-		i++;
-		// printf("Address of %d. node: %p\n", i, iterator);
-		// printf("Value of %d. node->integer: %d\n", i, iterator->integer);
-		// printf("Index of node: %d\n", iterator->index);
-		printf("Index when sorted: %d\n", iterator->sorted);
-		// printf("Address of %d. node->previous value: %p\n", i,
-		// iterator->previous);
-		// printf("Address of %d. node->next value: %p\n", i, iterator->next);
-		// printf("i value: %d\n", iterator->i);
-		// printf("j value: %d\n", iterator->j);
-		// printf("m value: %d\n", iterator->m);
-		iterator = iterator->next;
-	}
-}
+// 	i = 0;
+// 	iterator = *stack;
+// 	while (iterator != NULL)
+// 	{
+// 		i++;
+// 		// printf("Address of %d. node: %p\n", i, iterator);
+// 		// printf("Value of %d. node->integer: %d\n", i, iterator->integer);
+// 		// printf("Index of node: %d\n", iterator->index);
+// 		printf("Index when sorted: %d\n", iterator->sorted);
+// 		// printf("Address of %d. node->previous value: %p\n", i,
+// 		// iterator->previous);
+// 		// printf("Address of %d. node->next value: %p\n", i, iterator->next);
+// 		// printf("i value: %d\n", iterator->i);
+// 		// printf("j value: %d\n", iterator->j);
+// 		// printf("m value: %d\n", iterator->m);
+// 		iterator = iterator->next;
+// 	}
+// }
 
 int	main(int argc, char **argv)
 {
@@ -105,7 +104,6 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	ft_det_dups(ptr_to_head_a);
-	printf("No dups detected\n");
 	ft_sort(&ptr_to_head_a, &ptr_to_head_b);
 	ft_del_lst(&ptr_to_head_a);
 	ft_del_lst(&ptr_to_head_b);

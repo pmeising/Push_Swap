@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:15:49 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/22 20:27:58 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/23 11:18:50 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,23 @@ int	ft_combine(int i, int j, struct s_stacks *iterator)
 	return (ft_abs(j) + ft_abs(i) + ft_abs(m));
 }
 
+int	ft_spot_exists(struct s_stacks **a, int sorted)
+{
+	struct s_stacks	*head;
+	int				i;
+
+	head = *a;
+	i = 0;
+	while (head->next != NULL)
+	{
+		if (sorted > head->sorted && sorted < head->next->sorted)
+			return (i + 1);
+		i++;
+		head = head->next;
+	}
+	return (-1);
+}
+
 // i represents the steps it takes to get the value on b to the top.
 // j represents the steps it takes to get the value on a to the top.
 // putting i and j on the variables in the list.
@@ -60,19 +77,21 @@ int	ft_find_steps(struct s_stacks **a, struct s_stacks **b, int k)
 
 	iterator = *b;
 	pos = k;
+	iterator->m = 0;
 	while (k != 0) // walking up the iterator to the position of where I operate.
 	{
 		iterator = iterator->next;
 		k--;
 	}
 	iterator->i = ft_op_rot_b(b, pos);
-	if (ft_is_in_stack(a, (iterator->sorted + 1)) != -1)
-		iterator->j = ft_op_rot_a(a, ft_is_in_stack(a, (iterator->sorted + 1)));
+	if (iterator->sorted < ft_find_min_ret_value(a))
+		iterator->j = ft_op_rot_a(a, ft_find_min_ret_pos(a));
+	else if (ft_spot_exists(a, iterator->sorted) != -1)
+		iterator->j = ft_op_rot_a(a, ft_spot_exists(a, iterator->sorted));
 	else if (iterator->sorted == ((ft_lstsize(*a) + ft_lstsize(*b)) - 1) && ft_is_in_stack(a, 0) != -1)
 		iterator->j = ft_op_rot_a(a, ft_is_in_stack(a, 0));
 	else
 		return (-1);
-	// printf("Returning values before combine: %d, %d\n", iterator->i, iterator->j);
 	return (ft_combine(iterator->i, iterator->j, iterator));
 }
 
