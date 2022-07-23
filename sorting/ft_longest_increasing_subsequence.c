@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 10:38:40 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/22 13:07:13 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/23 12:45:36 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	ft_lis(struct s_stacks **lst, int *subsequence, int *length)
 {
 	struct s_stacks	*iterator;
 	struct s_stacks	*walker;
-
 
 	iterator = *lst;
 	iterator = iterator->next;

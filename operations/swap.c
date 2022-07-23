@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 19:44:25 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/19 19:30:37 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/23 12:36:33 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 // Swap the first 2 elements at the top of stack a.
 // Do nothing if there is only one or no elements.
-
-
 
 // Problem: integer values do not have a "null" option.
 // I need a way to clarify when the node is empty.

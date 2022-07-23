@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 23:00:48 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/19 19:29:20 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/23 12:36:19 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 // When the source list is empty, I'll throw an error, as this is
 // a effectless action. When the destination is empty, I'll have to create a 
 // new node in it. If it is not empty, I'll have to add it to the top.
-
 
 void	ft_push(struct s_stacks **src, struct s_stacks **dest)
 {

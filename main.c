@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 15:41:32 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/23 11:37:34 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/23 12:44:48 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,17 @@ static void	ft_det_dups(struct s_stacks *ptr_to_head)
 // 	}
 // }
 
+void	ft_main_2(struct s_stacks **a, struct s_stacks **b)
+{
+	struct s_stacks	*ptr_to_head_a;
+
+	ptr_to_head_a = *a;
+	ft_det_dups(ptr_to_head_a);
+	ft_sort(a, b);
+	ft_del_lst(a);
+	ft_del_lst(b);
+}
+
 int	main(int argc, char **argv)
 {
 	struct s_stacks	*ptr_to_head_a;
@@ -103,13 +114,6 @@ int	main(int argc, char **argv)
 		ft_lstadd_back(&ptr_to_head_a, ft_lstnew(ft_atolonglong(arguments[i])));
 		i++;
 	}
-	ft_det_dups(ptr_to_head_a);
-	ft_sort(&ptr_to_head_a, &ptr_to_head_b);
-	ft_del_lst(&ptr_to_head_a);
-	ft_del_lst(&ptr_to_head_b);
+	ft_main_2(&ptr_to_head_a, &ptr_to_head_b);
 	return (0);
 }
-
-// Int minimum value is still not caught!!!!! 
-// Attention!!!!!
-// Int Min is not taken account for....!!!
