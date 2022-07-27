@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:39:34 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/23 10:18:14 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:58:53 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	ft_check_if_sorted(struct s_stacks **c)
 
 // rotates, until lowest int is on the top of the list and puts sorted indexes. 
 // Then writes the sorted indexes into the nodes.
+// Line 61: putting lowest int at the top.
 
 void	ft_put_indexes(struct s_stacks **c)
 {
@@ -57,7 +58,7 @@ void	ft_put_indexes(struct s_stacks **c)
 		iterator = iterator->next;
 	}
 	iterator = *c;
-	while (iterator->integer != i) // put lowest int at the top.
+	while (iterator->integer != i)
 	{
 		ft_rotate(c);
 		iterator = *c;
@@ -67,7 +68,6 @@ void	ft_put_indexes(struct s_stacks **c)
 	while (iterator != NULL)
 	{
 		iterator->sorted = i;
-		// printf("integer: %d Iterator->sorted value: %d \n", iterator->integer, iterator->sorted);
 		i++;
 		iterator = iterator->next;
 	}
@@ -121,7 +121,7 @@ void	ft_transfere_indexes(struct s_stacks **a, struct s_stacks **c)
 		}
 		head_c = head_c->next;
 	}
-	ft_del_lst(&head_c);
+	ft_del_lst(c);
 }
 
 void	ft_put_sorted(struct s_stacks **a)
@@ -133,7 +133,11 @@ void	ft_put_sorted(struct s_stacks **a)
 	ft_copy_lst(a, &head_c);
 	iterator = head_c;
 	if (ft_check_if_sorted(&head_c) == 1)
+	{
 		ft_error(9, 0);
+		ft_del_lst(a);
+		ft_del_lst(&head_c);
+	}
 	while (ft_check_if_sorted(&head_c) != 1)
 	{
 		if (iterator->next == NULL)

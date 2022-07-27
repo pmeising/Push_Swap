@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:11:48 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/23 12:50:41 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/27 15:34:33 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,13 @@
 // in the function ft_find_max, I am looking for the max value in the array
 // length.
 
-//		FOR TROUBLESHOOTING PURPOSES:
-// ft_print_stack(a);
-// printf("^^^ Stack A ^^^\n");
-// ft_print_stack(b);
-// printf("^^^ Stack B ^^^\n");
-
 void	ft_sort(struct s_stacks **a, struct s_stacks **b)
 {
 	int				length[500];
 	int				subsequence[500];
 
+	if (ft_lstsize(*a) == 3)
+		ft_helper_8(a, b);
 	if (ft_check_if_sorted(a) == 2)
 		ft_one_off(a, b);
 	ft_put_sorted(a);
@@ -41,8 +37,4 @@ void	ft_sort(struct s_stacks **a, struct s_stacks **b)
 	ft_lis(a, &subsequence[0], &length[0]);
 	ft_lis_to_b(a, b, &length[0], &subsequence[0]);
 	ft_sort_back_in_new(a, b);
-	if (ft_check_if_sorted(a) == 1)
-		printf("Sorting successful! :) \n");
-	else
-		printf("\n\nSORTING WAS NOT SUCCESSFULL...\n\n");
 }

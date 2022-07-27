@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 16:45:13 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/21 18:43:40 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/25 15:41:36 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,29 +32,18 @@ void	ft_rrr(struct s_stacks **a, struct s_stacks **b, int m)
 
 void	ft_rest(struct s_stacks **a, struct s_stacks **b, int i, int j)
 {
-	while (i != 0)
-	{
-		if (i > 0)
-		{
-			ft_operations(a, b, 6); // rotate b
-			i--;
-		}
-		else if (i < 0)
-		{
-			ft_operations(a, b, 8); // rev rotate b
-			i++;
-		}
-	}
+	if (i != 0)
+		ft_helper_2(a, b, i);
 	while (j != 0)
 	{
 		if (j > 0)
 		{
-			ft_operations(a, b, 5); // rotate a
+			ft_operations(a, b, 5);
 			j--;
 		}
 		else if (j < 0)
 		{
-			ft_operations(a, b, 7); // rev rotate a
+			ft_operations(a, b, 7);
 			j++;
 		}
 	}

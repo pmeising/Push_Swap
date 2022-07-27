@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 22:13:00 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/23 11:37:59 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/25 15:06:27 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int	ft_op_rot_a(struct s_stacks **a, int pos)
 	size = ft_lstsize(*a);
 	if (pos == 0)
 		return (pos);
-	if (pos < (size/2))
-		return (pos); // rotate a "pos" times.
-	else if (pos == (size/2))
+	if (pos < (size / 2))
 		return (pos);
-	else if (pos >= (size/2))
-		return (-1 * (size - pos)); // rev rotate a size - pos times.
+	else if (pos == (size / 2))
+		return (pos);
+	else if (pos >= (size / 2))
+		return (-1 * (size - pos));
 	else
 		return (0);
 }
@@ -47,12 +47,12 @@ int	ft_op_rot_b(struct s_stacks **b, int pos)
 	size = ft_lstsize(*b);
 	if (pos == 0)
 		return (pos);
-	if (pos < (size/2))
-		return (pos); // rotate b "pos" times getting it to the top.
-	else if (pos == (size/2))
+	if (pos < (size / 2))
 		return (pos);
-	else if (pos >= (size/2))
-		return (-1 * (size - pos)); // rev rotate b size - pos times.
+	else if (pos == (size / 2))
+		return (pos);
+	else if (pos >= (size / 2))
+		return (-1 * (size - pos));
 	else
 		return (0);
 }
@@ -97,6 +97,8 @@ int	ft_find_min_ret_value(struct s_stacks **c)
 	return (i);
 }
 
+// Line 109 first one is already compared to by statement in if clause.
+
 int	ft_find_max(int	*length)
 {
 	int	i;
@@ -104,7 +106,7 @@ int	ft_find_max(int	*length)
 
 	index_of_max = 0;
 	i = 499;
-	while (i > 0) // first one is already compared to by statement in if clause
+	while (i > 0)
 	{
 		if (length[i] > length[i - 1] && length[i] > length[index_of_max])
 			index_of_max = i;
