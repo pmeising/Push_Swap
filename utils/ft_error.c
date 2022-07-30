@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 19:05:03 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/27 15:40:44 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:39:36 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,10 +142,7 @@ int	ft_check(char *list)
 void	ft_check_errors(int argc, char **argv)
 {
 	if (argc < 2)
-	{
-		ft_error(0, 0);
 		exit (0);
-	}
 	if (argc > 2 && (ft_strchr(argv[1], 32) != NULL))
 	{
 		ft_error(1, 0);

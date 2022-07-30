@@ -6,7 +6,7 @@
 #    By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/25 12:46:18 by pmeising          #+#    #+#              #
-#    Updated: 2022/07/27 15:56:56 by pmeising         ###   ########.fr        #
+#    Updated: 2022/07/28 09:53:15 by pmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,8 @@ SRCS	:= ./operations/operations.c			\
 			./sorting/ft_switch.c					\
 			./sorting/optimize.c					\
 			./sorting/ft_helper.c					\
+			./sorting/ft_helper_2.c					\
+			./sorting/ft_sort_short.c				\
 			./utils/main.c						\
 			./utils/ft_atolonglong.c				\
 			./utils/ft_del_lst.c					\
@@ -77,6 +79,7 @@ B_SRCS	:=	./bonus/bonus_main.c				\
 			./sorting/ft_switch.c					\
 			./sorting/optimize.c					\
 			./sorting/ft_helper.c					\
+			./sorting/ft_helper_2.c					\
 			./utils/ft_atolonglong.c				\
 			./utils/ft_del_lst.c					\
 			./utils/ft_error.c					\

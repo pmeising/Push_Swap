@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 00:00:04 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/27 15:35:50 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/28 11:32:20 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,12 @@ void	ft_trlt_op(struct s_stacks **a, struct s_stacks **b, char *instr)
 
 void	ft_read_from_terminal(struct s_stacks **a, struct s_stacks **b)
 {
-	char	*instr;
+	char		*instr;
+	t_stacks	*ptr;
+	int			size;
 
+	size = ft_lstsize(*a);
+	ptr = *b;
 	instr = "0000";
 	while (instr != NULL)
 	{
@@ -60,7 +64,7 @@ void	ft_read_from_terminal(struct s_stacks **a, struct s_stacks **b)
 		free (instr);
 	}
 	free (instr);
-	if (ft_check_if_sorted(a) == 1)
+	if (ft_check_if_sorted(a) == 1 && ptr == NULL && size == ft_lstsize(*a))
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);

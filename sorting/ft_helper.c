@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 15:25:52 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/27 15:38:11 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/30 18:36:01 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ int	ft_helper_6(struct s_stacks **b)
 
 int	ft_helper_7(int i, const char *nptr)
 {
-	int	nbr;
+	long long	nbr;
+	int			number;
 
 	nbr = 0;
 	while (nptr[i] > 47 && nptr[i] < 58)
@@ -66,12 +67,39 @@ int	ft_helper_7(int i, const char *nptr)
 		nbr = nbr * 10 + nptr[i] - 48;
 		i++;
 	}
-	return (nbr);
+	if (nbr > 2147483647 || nbr < -2147483648)
+		ft_error(1, 1);
+	number = (int)nbr;
+	return (number);
 }
+
+// for # of ints == 3, I swap first, then I reverse rotate if not in correct
+// order.
+// helper_9 finds and returns the position of the maximum int of the sequence.
+// if it is 3 1 2, I can just rotate a
+// if it is 3 2 1, I need to swap and rev rotate
 
 void	ft_helper_8(struct s_stacks **a, struct s_stacks **b)
 {
-	ft_operations(a, b, 1);
-	while (ft_check_if_sorted(a) != 1)
+	int	pos_min;
+	int	pos_max;
+
+	pos_min = ft_helper_10(a);
+	pos_max = ft_helper_9(a);
+	if (pos_min == 0)
+	{
+		ft_operations(a, b, 7);
+		ft_operations(a, b, 1);
+	}
+	else if (pos_max == 0 && pos_min == 1)
 		ft_operations(a, b, 5);
+	else if (pos_max == 0 && pos_min == 2)
+	{
+		ft_operations(a, b, 1);
+		ft_operations(a, b, 7);
+	}
+	else if (pos_max == 1 && pos_min == 2)
+		ft_operations(a, b, 7);
+	else
+		ft_operations(a, b, 1);
 }

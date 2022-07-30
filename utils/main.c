@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 15:41:32 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/25 18:03:55 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/30 22:43:46 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 
 void	ft_helper_0(struct s_stacks *ptr_to_head)
 {
-	ft_error(5, 0);
 	ft_del_lst(&ptr_to_head);
+	ft_error(5, 0);
 }
 
 static void	ft_det_dups(struct s_stacks *ptr_to_head)
@@ -72,9 +72,9 @@ static void	ft_det_dups(struct s_stacks *ptr_to_head)
 // 	{
 // 		i++;
 // 		// printf("Address of %d. node: %p\n", i, iterator);
-// 		// printf("Value of %d. node->integer: %d\n", i, iterator->integer);
+// 		printf("Value of %d. node->integer: %d\n", i, iterator->integer);
 // 		// printf("Index of node: %d\n", iterator->index);
-// 		printf("Index when sorted: %d\n", iterator->sorted);
+// 		// printf("Index when sorted: %d\n", iterator->sorted);
 // 		// printf("Address of %d. node->previous value: %p\n", i,
 // 		// iterator->previous);
 // 		// printf("Address of %d. node->next value: %p\n", i, iterator->next);
@@ -91,7 +91,12 @@ void	ft_2(struct s_stacks **a, struct s_stacks **b)
 
 	ptr_to_head_a = *a;
 	ft_det_dups(ptr_to_head_a);
-	ft_sort(a, b);
+	if (ft_check_if_sorted(a) == 1)
+		exit(0);
+	if (ft_lstsize(*a) < 6)
+		ft_sort_short(a, b);
+	else
+		ft_sort(a, b);
 	ft_del_lst(a);
 }
 

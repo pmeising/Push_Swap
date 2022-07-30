@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 19:44:25 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/25 14:46:38 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/30 19:05:48 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,24 @@ void	ft_swap(struct s_stacks **list)
 	struct s_stacks	*ptr_to_head;
 	struct s_stacks	*temp1;
 	struct s_stacks	*temp2;
+	int				size;
 
+	size = ft_lstsize(*list);
 	ptr_to_head = *list;
 	if (ptr_to_head == NULL || ptr_to_head->next == NULL)
 		ft_error(6, 0);
-	else
+	temp1 = ptr_to_head->next;
+	if (size > 2)
 	{
-		ptr_to_head->previous = ptr_to_head->next;
-		ptr_to_head->next->previous = NULL;
-		temp1 = ptr_to_head->next->next;
-		temp2 = ptr_to_head->next;
-		ptr_to_head->next = temp1;
-		temp2->next = ptr_to_head;
-		*list = temp2;
+		temp2 = ptr_to_head->next->next;
+		temp2->previous = ptr_to_head;
 	}
+	ptr_to_head->previous = temp1;
+	temp1->previous = NULL;
+	if (size > 2)
+		ptr_to_head->next = temp2;
+	else
+		ptr_to_head->next = NULL;
+	temp1->next = ptr_to_head;
+	*list = temp1;
 }

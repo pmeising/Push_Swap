@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 22:13:00 by pmeising          #+#    #+#             */
-/*   Updated: 2022/07/25 15:18:32 by pmeising         ###   ########.fr       */
+/*   Updated: 2022/07/28 09:31:07 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ int	ft_abs(int i)
 		i = i * (-1);
 	return (i);
 }
+
+// 7 = rev rot a.
+// 1 = sa
+// 5 = rotate a
 
 void	ft_one_off(struct s_stacks **a, struct s_stacks **b)
 {
